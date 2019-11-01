@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from 'react-navigation-stack';
 import { Icon } from 'native-base';
 
-class MainScreen extends Component {
+class HomeTab extends Component {
     static navigationOptions = {
         headerLeft: <Icon name="camera" style={{paddingLeft: 10}}/>,
         title: 'Instagram',
@@ -12,13 +13,13 @@ class MainScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>MainScreen</Text>
+                <Text>HomeTab</Text>
             </View>
         );
     }
 }
 
-export default MainScreen;
+export default createStackNavigator({HomeTab});
 
 const styles = StyleSheet.create({
   container: {
