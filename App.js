@@ -1,6 +1,7 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { Icon } from 'native-base';
 import HomeTab from './components/HomeTab';
 import SearchTab from './components/SearchTab';
 import UploadTab from './components/UploadTab';
@@ -13,12 +14,25 @@ export default function App() {
   );
 }
 
+const getTab = (tab, icon) => {
+  return {
+    screen: tab,
+    navigationOptions: {
+        tabBarIcon: ({ tintColor }) => (<Icon name={icon} style={{color: tintColor}}/>)
+    }
+  }
+}
+
 const AppStack = createBottomTabNavigator({
-  HomeTab,
-  SearchTab,
-  UploadTab,
-  ActivityTab,
-  ProfileTab
+  Home: getTab(HomeTab, "home"),
+  Search: getTab(SearchTab, "search"),
+  Upload: getTab(UploadTab, "add"),
+  Activity: getTab(ActivityTab, "heart"),
+  Profile: getTab(ProfileTab, "person")
+}, {
+  tabBarOptions: {
+    showLabel: false
+  }
 });  
 
 const AppNavigator = createSwitchNavigator({
