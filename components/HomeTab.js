@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Icon, Container, Content } from 'native-base';
 import { createStackNavigator } from 'react-navigation-stack';
+import Stories from './Stories';
 import Post from './Post';
 
 class HomeTab extends Component {
@@ -15,6 +16,7 @@ class HomeTab extends Component {
         return (
             <Container style={styles.container}>
                 <Content>
+                    <Stories />
                     <Post
                         profileName="Puggy"
                         profileImageUrl='https://picsum.photos/id/1025/960/640'
